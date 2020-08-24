@@ -86,7 +86,7 @@ label {
   color: #ffc400;
 }
 
-/* tr:nth-child(even) {background-color: #999999;} */
+tr.tableBody:nth-child(even) {background-color: #999999;} */
 
 div.newForm {
   margin-top: 5px;
