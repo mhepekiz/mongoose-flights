@@ -70,8 +70,17 @@ tr.tableBody {
 }
 
 
+tr a {
+  color: #000000;
+  text-decoration: none;
+}
+
+tr a:hover {
+  color: #ffffff;
+}
+
 tr.tableBodyPast{
-  animation: blinkingBackground 1s infinite;
+  animation: blinkingBackground .5s infinite;
   height: 30px;
   color: #ffffff;
 }
