@@ -1,0 +1,37 @@
+<%- include('../tmp/header.ejs') -%>
+
+
+
+
+<h1>All Flights</h1>
+
+ 
+
+<table>
+  <tr class="tableHead">
+    <th>Flight Number</th>
+    <th>Airline</th>
+    <th>Airport</th>
+    <th>Date</th>
+  </tr>
+  <% flights.forEach(function(m) { %>
+  <tr class="tableBody">
+    <th><%= m.flightNo %></th>
+    <th><%= m.airline %></th>
+    <th><%= m.airport %></th>
+    <th><%= m.departs %></th>
+  </tr>
+  <% }); %>
+
+</table>
+
+
+
+
+  <!-- <a href="/skills/new"><button class="back">ADD NEW SKILL</button></a> -->
+      
+
+
+
+
+<%- include('../tmp/footer.ejs') -%>

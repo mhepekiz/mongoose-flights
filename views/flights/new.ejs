@@ -1,0 +1,46 @@
+<%- include('../tmp/header.ejs') -%>
+<h1>Add New Flight</h1>
+
+<div class="newForm">
+
+
+    <table>
+        <tr class="tableBody">
+          <th>
+
+            <form id="new-flight" class="new-flight" action="/flights" method="POST">
+                <label>Airline</label>
+                <select name="airline">
+                  <option value="American">American</option>
+                  <option value="Delta">Delta</option>
+                  <option value="Southwest">Southwest</option>
+                  <option value="United">United</option>
+                </select>
+            
+                <label>Airport</label>
+                <select name="airport">
+                  <option value="ATL">ATL</option>
+                  <option value="DFW">DFW</option>
+                  <option value="DEN">DEN</option>
+                  <option value="LAX">LAX</option>
+                  <option value="SAN">SAN</option>
+                </select>
+            
+                <label>Flight No:</label>
+                <input type="text" name="flightNo" autocomplete="off">
+                <label>Date:</label>
+                <input type="datetime-local" name="departs">
+                
+                <input type="submit" value="Add Flight">
+              </form>
+
+
+          </th>
+        </tr>
+      </table>
+
+</div>
+
+
+
+<%- include('../tmp/footer.ejs') -%>
