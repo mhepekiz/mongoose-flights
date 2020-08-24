@@ -60,7 +60,7 @@ thead {
 tr.tableHead {
   background-color: #ffc400;
   height: 30px;
-  color: #efefef;
+  color: #333333;
 }
 
 tr.tableBody {
@@ -69,6 +69,16 @@ tr.tableBody {
   color: #efefef;
 }
 
+
+tr.tableBodyPast{
+  animation: blinkingBackground 1s infinite;
+  height: 30px;
+  color: #ffffff;
+}
+@keyframes blinkingBackground{
+  50%		{ background-color: #ef0a1a;}
+ }
+
 label {
   font-size: 20px;
   padding: 10px;
@@ -76,7 +86,7 @@ label {
   color: #ffc400;
 }
 
-tr:nth-child(even) {background-color: #999999;}
+/* tr:nth-child(even) {background-color: #999999;} */
 
 div.newForm {
   margin-top: 5px;

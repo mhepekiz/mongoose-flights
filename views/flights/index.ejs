@@ -1,12 +1,6 @@
 <%- include('../tmp/header.ejs') -%>
 
-
-
-
 <h1>All Flights</h1>
-
- 
-
 <table>
   <tr class="tableHead">
     <th>Flight Number</th>
@@ -14,8 +8,12 @@
     <th>Airport</th>
     <th>Date</th>
   </tr>
-  <% flights.forEach(function(m) { %>
-  <tr class="tableBody">
+  <% flights.forEach(function(m) { 
+
+      let dateCheck = new Date(m.departs).getTime() ;
+      if( dateCheck < checkR){ %> <tr class="tableBodyPast"> <% } else { %>
+    <tr class="tableBody">
+      <% } %>
     <th><%= m.flightNo %></th>
     <th><%= m.airline %></th>
     <th><%= m.airport %></th>

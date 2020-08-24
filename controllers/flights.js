@@ -10,12 +10,18 @@ module.exports = {
 
 function index(req, res) {
     Flight.find({}, function(err, flights) {
-      res.render('flights/index', { title: 'Flight Operator', section: 'All Flights', flights });
+
+
+  let d = new Date();
+  let n = d.toUTCString();
+  let checkDateConv = new Date(n).getTime() ;
+      res.render('flights/index', { title: 'Flight Operator', section: 'All Flights', checkR: checkDateConv, flights });
     }).sort( { departs: 1 } );
   }
 
 
   function newFlight(req, res) {
+
     res.render('flights/new', { title: 'Flight Operator', section: 'Add New Flight'});
   }
   
@@ -24,7 +30,6 @@ function index(req, res) {
     flight.save(function(err) {
       if (err) return res.redirect('/flights/new');
       console.log(flight);
-      // for now, redirect right back to new.ejs
       res.redirect('/flights');
     });
   }
