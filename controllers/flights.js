@@ -26,11 +26,10 @@ function index(req, res) {
       res.render('flights/show', { title: 'Flight Detail', section: 'Flight Details', checkR: checkDateConv, flight });
     });
   }
-
-
+  
+  
 
   function newFlight(req, res) {
-    
     res.render('flights/new', { title: 'Flight Operator', section: 'Add New Flight'});
   }
   

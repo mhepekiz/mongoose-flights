@@ -29,15 +29,18 @@
       <table>
         <thead>
             <tr class="tableDestHead">
+              <th>Del</th>
               <th>Destination Airport</th>
               <th>Arrival Date</th>
           </tr>
         </thead>
         <tbody>
-          <% flight.destinations.forEach(function(d) { %>
+          <% flight.destinations.forEach(function(d) {  %>
             <tr class="tableBody">
+              <th> <form action="/destinations/<%= d._id %>/<%= flight._id %>" method=DELETE">
+                <button type="submit">X</button></th>
               <th><%= d.airport %></th>
-                <th><%= d.arrival.toLocaleDateString() %></th>
+                <th><%= d.arrival %></th>
             </tr>
           <% }); %>
         </tbody>
