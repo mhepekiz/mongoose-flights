@@ -22,7 +22,6 @@ function index(req, res) {
     let n = d.toUTCString();
     let checkDateConv = new Date(n).getTime() ;
     Flight.findById (req.params.id,function(err, flight) {
-      console.log(flight)
       res.render('flights/show', { title: 'Flight Detail', section: 'Flight Details', checkR: checkDateConv, flight });
     });
   }

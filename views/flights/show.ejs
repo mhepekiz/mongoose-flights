@@ -37,11 +37,11 @@
         <tbody>
           <% flight.destinations.forEach(function(d) {  %>
             <tr class="tableBody">
-              <th> <form action="/destinations/<%= d._id %>/<%= flight._id %>" method=DELETE">
+              <th> <form action="/destinations/<%= d._id %>/<%= flight._id %>" method="DELETE">
                 <button type="submit">X</button></th>
               <th><%= d.airport %></th>
                 <th><%= d.arrival %></th>
-            </tr>
+            </tr></form>
           <% }); %>
         </tbody>
       </table>
