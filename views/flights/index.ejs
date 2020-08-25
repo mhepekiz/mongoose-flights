@@ -7,17 +7,19 @@
     <th>Airline</th>
     <th>Airport</th>
     <th>Date</th>
+    <th>&nbsp;</th>
   </tr>
-  <% flights.forEach(function(m) { 
+  <% flights.forEach(function(m) {  
 
       let dateCheck = new Date(m.departs).getTime() ;
       if( dateCheck < checkR){ %> <tr class="tableBodyPast"> <% } else { %>
     <tr class="tableBody">
       <% } %>
-    <th><a href="#"><%= m.flightNo %></a></th>
+    <th><%= m.flightNo %></th>
     <th><%= m.airline %></th>
     <th><%= m.airport %></th>
     <th><%= m.departs %></th>
+    <th><a href="/flights/<%= m._id %>"><button class="detailButton">DETAILS</button></a></th>
   </tr>
   <% }); %>
 

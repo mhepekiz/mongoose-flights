@@ -1,0 +1,83 @@
+<%- include('../tmp/header.ejs') -%>
+
+
+<h1>Flight Details</h1>
+<table>
+    <tr class="tableHead">
+        <th colspan="3">Departure Date</th>
+      </tr>
+      <tr class="tableBody">
+        <th colspan="3"><%= flight.departs %></th>
+        </tr>
+  <tr class="tableHead">
+    <th>Flight Number</th>
+    <th>Airline</th>
+    <th>Departure Airport</th>
+  </tr>
+  <% 
+  let dateCheck = new Date(flight.departs).getTime() ;
+  if( dateCheck < checkR){ %> <tr class="tableBodyPast"> <% } else { %>
+<tr class="tableBody">
+  <% } %>
+    <th><%= flight.flightNo %></th>
+    <th><%= flight.airline %></th>
+    <th><%= flight.airport %></th>
+  </tr>
+</table>
+<hr size="1px">
+    <% if (flight.destinations.length) { %>
+      <table>
+        <thead>
+            <tr class="tableDestHead">
+              <th>Destination Airport</th>
+              <th>Arrival Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% flight.destinations.forEach(function(d) { %>
+            <tr class="tableBody">
+              <th><%= d.airport %></th>
+                <th><%= d.arrival.toLocaleDateString() %></th>
+            </tr>
+          <% }); %>
+        </tbody>
+      </table>
+    <% } else { %>
+      <h2>No Destinations Added</h2>
+    <% } %>
+    
+
+    
+
+<div class="newForm">
+
+
+    <table>
+        <tr class="tableAddBody">
+          <th><h3>Add New Destination</h3></th>
+          <th>
+            <form id="new-destination" class="new-flight" action="/flights/<%= flight._id %>/destinations" method="POST">
+              <label>Destination Airport</label>
+              <select name="airport">
+                <option value="AUS">AUS</option>
+                <option value="DFW">DFW</option>
+                <option value="DEN">DEN</option>
+                <option value="LAX">LAX</option>
+                <option value="SAN">SAN</option>
+              </select>
+              <label>Arrival Date</label>
+              <input type="datetime-local" name="arrival">
+              <input type="submit" value="Add Destination">
+            </form>
+          </th>
+        </tr>
+      </table>
+
+</div>
+
+
+
+   
+
+
+<%- include('../tmp/footer.ejs') -%>

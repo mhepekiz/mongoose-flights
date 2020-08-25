@@ -1,3 +1,4 @@
+
 * {
   /* height & width now includes border & padding */
   box-sizing: border-box;
@@ -18,18 +19,23 @@ header {
   top: 0;
   left: 0;
   right: 0;
-  height: 80px;
+  height: 60px;
   display: flex;
   align-items: center;
   box-shadow: 0 0 25px 0 black;
 }
+
+span.planeSpan {
+  margin-left: 20px;
+}
+
 
 header * {
   display: inline;
 }
 
 header li {
-  margin: 20px;
+  margin: 15px;
 }
 
 header li a {
@@ -47,6 +53,19 @@ h1 {
  margin-top: 100px;
 }
 
+h2 {
+  margin-top: 20px;
+  color: #efefef;
+  font-size: 20px;
+ }
+
+ h3 {
+  margin-top: 20px;
+  color: #000000;
+  font-size: 22px;
+ }
+
+
 
 table {
   width: 100%;
@@ -63,11 +82,29 @@ tr.tableHead {
   color: #333333;
 }
 
+tr.tableDestHead {
+  background-color: #ff9100;
+  height: 30px;
+  color: #333333;
+}
+
+th {
+  text-align: center;
+
+}
+
 tr.tableBody {
   background-color: #777777;
   height: 30px;
   color: #efefef;
 }
+
+tr.tableAddBody {
+  background-color: #777777;
+  height: 100px;
+  color: #efefef;
+}
+
 
 
 tr a {
@@ -117,7 +154,7 @@ input {
 }
 
 input[type=datetime-local] {
-  width: 14%;
+  width: 20%;
   padding: 16px 20px;
   border: none;
   border-radius: 4px;
@@ -126,9 +163,14 @@ input[type=datetime-local] {
 
 
 input[type=submit] {
-  width: 10%;
+  width: 15%;
   padding: 19px 20px;
   border: none;
   border-radius: 4px;
   background-color: #ffc400;
+}
+
+button.detailButton {
+  padding: 5px;
+  width: 100px;
 }
