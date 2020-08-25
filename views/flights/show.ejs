@@ -37,11 +37,12 @@
         <tbody>
           <% flight.destinations.forEach(function(d) {  %>
             <tr class="tableBody">
-              <th> <form action="/destinations/<%= d._id %>/<%= flight._id %>" method="DELETE">
-                <button type="submit">X</button></th>
+              <th> 
+                <form action="/destinations/<%= d._id %>/<%= flight._id %>?_method=DELETE" method="POST">
+                <button type="submit">X</button></form></th>
               <th><%= d.airport %></th>
                 <th><%= d.arrival %></th>
-            </tr></form>
+            </tr>
           <% }); %>
         </tbody>
       </table>
@@ -59,7 +60,7 @@
         <tr class="tableAddBody">
           <th><h3>Add New Destination</h3></th>
           <th>
-            <form id="new-destination" class="new-flight" action="/flights/<%= flight._id %>/destinations" method="POST">
+            <form id="new-destination" action="/flights/<%= flight._id %>/destinations" method="POST">
               <label>Destination Airport</label>
               <select name="airport">
                 <option value="AUS">AUS</option>
