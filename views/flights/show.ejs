@@ -1,6 +1,9 @@
 <%- include('../partials/header.ejs') -%>
 
 
+<!-- ********** FLIGHT DETAILS *********** --> 
+
+
 <h1>Flight Details</h1>
 <table>
     <tr class="tableHead">
@@ -25,9 +28,44 @@
   </tr>
 </table>
 <hr size="1px">
+
+<!-- ********** TICKETS *********** -->
+<% if (tickets.length) { %>
+<table>
+  <thead>
+      <tr><th colspan="4"><h2>Tickets</h2></th></tr>
+      <tr class="tableDestHead">
+        <th>Del</th>
+        <th>Seat Number</th>
+        <th>Retail Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% tickets.forEach(function(t) { %>      
+      <tr class="tableBody">
+        <th class="dataDelete"> 
+          <form action="/destinations/<%= t._id %>/<%= flight._id %>?_method=DELETE" method="POST">
+          <button type="submit">X</button></form></th>
+        <th class="seatDestAirport"><%= t.seat %></th>
+          <th><%= t.price %></th>
+      </tr>
+    <% }); %>
+  </tbody>
+</table>
+<% } else { %>
+<h2>No Tickets Sold</h2>
+<% } %>
+
+
+<hr size="1px">
+
+<!-- ********** DESTINATION DETAILS *********** --> 
+
+
     <% if (flight.destinations.length) { %>
       <table>
         <thead>
+          <tr><th colspan="4"><h2>Destination Airports</h2></th></tr>
             <tr class="tableDestHead">
               <th>Del</th>
               <th>Destination Airport</th>
@@ -37,10 +75,10 @@
         <tbody>
           <% flight.destinations.forEach(function(d) {  %>
             <tr class="tableBody">
-              <th> 
+              <th class="dataDelete"> 
                 <form action="/destinations/<%= d._id %>/<%= flight._id %>?_method=DELETE" method="POST">
                 <button type="submit">X</button></form></th>
-              <th><%= d.airport %></th>
+              <th class="seatDestAirport"><%= d.airport %></th>
                 <th><%= d.arrival %></th>
             </tr>
           <% }); %>
@@ -58,7 +96,7 @@
 
     <table>
         <tr class="tableAddBody">
-          <th><h3>Add New Destination</h3></th>
+          
           <th>
             <form id="new-destination" action="/flights/<%= flight._id %>/destinations" method="POST">
               <label>Destination Airport</label>
@@ -73,7 +111,13 @@
               <input type="datetime-local" name="arrival">
               <input type="submit" value="Add Destination">
             </form>
+
           </th>
+          <th>
+            <form method="GET" action="/flights/<%= flight._id %>/tickets/new">
+              <input type="submit" value="Add Ticket">
+              </form></th>
+              
         </tr>
       </table>
 

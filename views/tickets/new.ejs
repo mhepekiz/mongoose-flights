@@ -1,0 +1,30 @@
+<%- include('../partials/header.ejs') -%>
+
+
+  <h1>Add New Ticket</h1>
+
+<div class="newForm">
+    <table>
+        <tr class="tableAddBody">
+          <th>
+
+            <form id="new-flight" class="new-flight" action="/flights/<%= flight %>/tickets" method="POST">
+              <label>Seat Number:</label>
+              <input name="seat" required pattern="[A-F][1-9]\d?">
+              <label>Price ($):</label>
+              <input type="number" name="price" pattern="^\d*(\.\d{2}$)?">
+              <input type="submit" value="Add Ticket">
+          </form>
+          </th>
+        </tr>
+       
+      </table>
+
+</div>
+
+
+
+
+  <%- include('../partials/footer.ejs') -%>
+
+

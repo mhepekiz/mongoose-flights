@@ -1,4 +1,6 @@
 const Flight = require('../models/flight');
+const Ticket = require('../models/ticket');
+
 
 module.exports = {
   index,
@@ -21,11 +23,15 @@ function index(req, res) {
     let d = new Date();
     let n = d.toUTCString();
     let checkDateConv = new Date(n).getTime() ;
+
     Flight.findById (req.params.id,function(err, flight) {
-      res.render('flights/show', { title: 'Flight Detail', section: 'Flight Details', checkR: checkDateConv, flight });
+      Ticket.find({flight: flight._id}, function(err, tickets){
+      res.render('flights/show', { title: 'Flight Detail', section: 'Flight Details', checkR: checkDateConv, flight, tickets });
     });
+
+  });
   }
-  
+
   
 
   function newFlight(req, res) {

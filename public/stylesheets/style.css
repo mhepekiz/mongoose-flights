@@ -54,9 +54,10 @@ h1 {
 }
 
 h2 {
-  margin-top: 20px;
+  margin-top: 10px;
   color: #efefef;
   font-size: 20px;
+  text-align: left;
  }
 
  h3 {
@@ -90,6 +91,18 @@ tr.tableDestHead {
 
 th {
   text-align: center;
+
+}
+
+th.dataDelete {
+  text-align: center;
+  width: 80px;
+
+}
+
+th.seatDestAirport {
+  text-align: center;
+  width: 250px;
 
 }
 
