@@ -213,7 +213,16 @@ input[type=submit].addTicketButton {
   border: none;
   border-radius: 4px;
   background-color: #e65e04;
+}
 
+input[type=submit].addTicketButtonDisable {
+  width: 150px;
+  padding: 19px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #444444;
+}
+  
 button.detailButton {
   padding: 5px;
   width: 100px;

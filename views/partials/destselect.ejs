@@ -1,0 +1,31 @@
+<% 
+    let emptyAirport = [];
+    let allAirports = ['AUS', 'DFW', 'DEN', 'LAX', 'SAN']
+    flight.destinations.forEach(function(d) { 
+ 
+    if (emptyAirport.indexOf(d.airport) === -1) emptyAirport.push(d.airport);
+   
+ });
+ 
+
+ var myArr = emptyAirport.concat(allAirports);
+  
+    newArr = myArr.filter(function(item){
+      return allAirports.indexOf(item) < 0 || emptyAirport.indexOf(item) < 0;
+    });
+
+
+
+ %>
+
+
+  <select name="airport">
+      <%
+      for(let i = 0; i < newArr.length; i++){
+       
+        %>
+    <option value="<%=newArr[i]%>"><%=newArr[i]%></option>
+      <%  }%>
+  </select>
+
+

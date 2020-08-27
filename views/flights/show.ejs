@@ -65,7 +65,8 @@
 <!-- ********** DESTINATION DETAILS *********** --> 
 
 
-    <% if (flight.destinations.length) { %>
+    <% 
+    if (flight.destinations.length) {    %>
       <table>
         <thead>
           <tr><th colspan="3"><h2>Destination Airports</h2></th></tr>
@@ -76,7 +77,8 @@
           </tr>
         </thead>
         <tbody>
-          <% flight.destinations.forEach(function(d) {  %>
+          <% flight.destinations.forEach(function(d) {
+             %>
             <tr class="tableBody">
               <th class="dataDelete"> 
                 <form action="/destinations/<%= d._id %>/<%= flight._id %>?_method=DELETE" method="POST">
@@ -89,23 +91,13 @@
       </table>
     <% } else { %>
       <h2>No Destinations Added</h2>
-    <% } %>
-    
-
-    
+    <% }   %>
     <table>
         <tr class="tableAddBody">
-          
           <th class="destinationForm">
             <form action="/flights/<%= flight._id %>/destinations" method="POST">
               <label>Destination Airport</label>
-              <select name="airport">
-                <option value="AUS">AUS</option>
-                <option value="DFW">DFW</option>
-                <option value="DEN">DEN</option>
-                <option value="LAX">LAX</option>
-                <option value="SAN">SAN</option>
-              </select>
+              <%- include('../partials/destselect.ejs') -%>
               <label>Arrival Date</label>
               <input type="datetime-local" name="arrival" value="<%= depDateShow %>"">
               <input type="submit" value="Add Destination">
@@ -114,7 +106,8 @@
           </th>
           <th>
             <form method="GET" action="/flights/<%= flight._id %>/tickets/new">
-              <input class="addTicketButton" type="submit" value="Add Ticket">
+              <% if( dateCheck < checkDateConv){ %> <input class="addTicketButtonDisable" disabled type="submit" value="Add Ticket"> <% } else { %>
+                <input class="addTicketButton" type="submit" value="Add Ticket">  <% } %>
               </form></th>
               
         </tr>
