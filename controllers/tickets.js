@@ -7,7 +7,7 @@ module.exports = {
 }
 
 function newTicket(req, res) {
-  res.render('tickets/new', { title: 'Flight Operator', section: 'All Flights', flight: req.params.id })
+  res.render('tickets/new', { title: 'Flight Operator', section: 'Ticket Sales', flight: req.params.id })
 }
 
 function create(req, res) {

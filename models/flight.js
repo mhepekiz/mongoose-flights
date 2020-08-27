@@ -7,14 +7,7 @@ const destinationSchema = new Schema({
     type: String,
     enum: ['AUS', 'DFW', 'DEN', 'LAX', 'SAN']
   },
-  arrival: {
-    type: Date,
-    default: function() {
-      const newDate = new Date();
-      return newDate.setFullYear(newDate.getFullYear() + 1)
-    }
-  }
-  
+  arrival: { type: Date }
 }, {
   timestamps: true
 });
@@ -33,8 +26,9 @@ const flightSchema = new Schema({
       min: 10,
       max: 9999
   },
-  destinations: [destinationSchema],
-  departs: Date },
+  departs: { type: Date, default: +new Date() + 180 * 24 * 60 * 60 * 1000 },
+  destinations: [destinationSchema]
+},
   
   {
     timestamps: true

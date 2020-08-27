@@ -18,8 +18,11 @@
     <th>Departure Airport</th>
   </tr>
   <% 
-  let dateCheck = new Date(flight.departs).getTime() ;
-  if( dateCheck < checkR){ %> <tr class="tableBodyPast"> <% } else { %>
+  let d = new Date();
+  let n = d.toUTCString();
+  let checkDateConv = new Date(n).getTime();
+  let dateCheck = new Date(flight.departs).getTime();
+  if( dateCheck < checkDateConv){ %> <tr class="tableBodyPast"> <% } else { %>
 <tr class="tableBody">
   <% } %>
     <th><%= flight.flightNo %></th>
@@ -33,7 +36,7 @@
 <% if (tickets.length) { %>
 <table>
   <thead>
-      <tr><th colspan="4"><h2>Tickets</h2></th></tr>
+      <tr><th colspan="3"><h2>Tickets</h2></th></tr>
       <tr class="tableDestHead">
         <th>Del</th>
         <th>Seat Number</th>
@@ -65,7 +68,7 @@
     <% if (flight.destinations.length) { %>
       <table>
         <thead>
-          <tr><th colspan="4"><h2>Destination Airports</h2></th></tr>
+          <tr><th colspan="3"><h2>Destination Airports</h2></th></tr>
             <tr class="tableDestHead">
               <th>Del</th>
               <th>Destination Airport</th>
@@ -90,15 +93,11 @@
     
 
     
-
-<div class="newForm">
-
-
     <table>
         <tr class="tableAddBody">
           
-          <th>
-            <form id="new-destination" action="/flights/<%= flight._id %>/destinations" method="POST">
+          <th class="destinationForm">
+            <form action="/flights/<%= flight._id %>/destinations" method="POST">
               <label>Destination Airport</label>
               <select name="airport">
                 <option value="AUS">AUS</option>
@@ -108,20 +107,19 @@
                 <option value="SAN">SAN</option>
               </select>
               <label>Arrival Date</label>
-              <input type="datetime-local" name="arrival">
+              <input type="datetime-local" name="arrival" value="<%= depDateShow %>"">
               <input type="submit" value="Add Destination">
             </form>
 
           </th>
           <th>
             <form method="GET" action="/flights/<%= flight._id %>/tickets/new">
-              <input type="submit" value="Add Ticket">
+              <input class="addTicketButton" type="submit" value="Add Ticket">
               </form></th>
               
         </tr>
       </table>
 
-</div>
 
 
 

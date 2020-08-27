@@ -4,7 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 require('./config/database');
-// var methodOverride = require('method-override');
+var methodOverride = require('method-override');
 
 const indexRouter = require('./routes/index');
 const flightRouter = require('./routes/flights');
@@ -24,7 +24,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// app.use(methodOverride('_method'));
+app.use(methodOverride('_method'));
 
 app.use('/', indexRouter);
 app.use('/flights', flightRouter);

@@ -10,9 +10,11 @@
     <th>&nbsp;</th>
   </tr>
   <% flights.forEach(function(m) {  
-
-      let dateCheck = new Date(m.departs).getTime() ;
-      if( dateCheck < checkR){ %> <tr class="tableBodyPast"> <% } else { %>
+      let d = new Date();
+      let n = d.toUTCString();
+      let checkDateConv = new Date(n).getTime();
+      let dateCheck = new Date(m.departs).getTime();
+      if( dateCheck < checkDateConv){ %> <tr class="tableBodyPast"> <% } else { %>
     <tr class="tableBody">
       <% } %>
     <th><%= m.flightNo %></th>

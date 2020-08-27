@@ -25,6 +25,24 @@ header {
   box-shadow: 0 0 25px 0 black;
 }
 
+
+footer {
+  background-color: #494949;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 600;
+
+}
+
+
+
 span.planeSpan {
   margin-left: 20px;
 }
@@ -106,6 +124,12 @@ th.seatDestAirport {
 
 }
 
+th.destinationForm {
+  text-align: center;
+  width: 90%;
+
+}
+
 tr.tableBody {
   background-color: #777777;
   height: 30px;
@@ -183,7 +207,15 @@ input[type=submit] {
   background-color: #ffc400;
 }
 
+input[type=submit].addTicketButton {
+  width: 150px;
+  padding: 19px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #e65e04;
+
 button.detailButton {
   padding: 5px;
   width: 100px;
 }
+
