@@ -47,7 +47,8 @@
     <% tickets.forEach(function(t) { %>      
       <tr class="tableBody">
         <th class="dataDelete"> 
-          <form action="/destinations/<%= t._id %>/<%= flight._id %>?_method=DELETE" method="POST">
+          
+          <form action="/tickets/<%= t._id %>/<%= flight._id %>?_method=DELETE" method="POST">
           <button type="submit">X</button></form></th>
         <th class="seatDestAirport"><%= t.seat %></th>
           <th><%= t.price %></th>
@@ -97,7 +98,9 @@
           <th class="destinationForm">
             <form action="/flights/<%= flight._id %>/destinations" method="POST">
               <label>Destination Airport</label>
+
               <%- include('../partials/destselect.ejs') -%>
+              
               <label>Arrival Date</label>
               <input type="datetime-local" name="arrival" value="<%= depDateShow %>"">
               <input type="submit" value="Add Destination">
